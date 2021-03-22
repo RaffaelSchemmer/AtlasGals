@@ -1,0 +1,3 @@
+<Name> <Distribution> <Frequency> <Target> <Priority> <NumberOfPackets> <PacketSize> <UniformRate> <NormalAverageRate> <NormalMinimalRate> <NormalMaximalRate> <NormalStandardDeviation> <NormalIncrement> <ParetoRateOnPeriod> <ParetoBurstSize> <CTRL_NumberOfPackets> <GS_NumberOfPackets> <BE_NumberOfPackets> <CTRL_PacketSize> <GS_PacketSize> <BE_PacketSize> <CTRL_UniformRate> <GS_UniformRate> <BE_UniformRate>
+Uniform_11 uniform 50 11 0 10 16 100 0 150 250 10 10 0 30 16 30 200 16 16 16 100 100 100
+Uniform_Random uniform 50 random 0 10 16 100 0 150 250 10 10 0 30 16 30 200 16 16 16 100 100 100

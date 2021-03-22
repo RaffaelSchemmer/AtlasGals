@@ -1,0 +1,143 @@
+    Tester is a tool that allows verify if the Atlas project generation (NoC + traffic) is correct. One of the difficulties to test a project generation was the wasted time using Atlas Graphical User Interface (GUI). Normally, the tests were done varying a limited number of parameters (for instance, the number of virtual channels). To solve this problem, Tester does not use the Atlas GUI. It uses two configuration files: projects configuration file and sceneries configuration file. Each line of the projects configuration file corresponds to a project and contains its parameters. Each line of the sceneries configuration file corresponds to a scenery and contains its parameters. Tester generates all projects defined in the projects configuration file and for each project it generates all sceneries defined in the sceneries configuration file. Moreover, it generates the simulation and verification scripts. The simulation script allows simulate all generated projects using Modelsim. While the verification script allows verify if all generated packets were correctly transmitted.
+
+
+A. Installation Instruction
+
+    Tester is a Java tool, so you must have Java installed in order to proceed. More precisely, you need a Java Development Kit (JDK), the Java Runtime Environment (JRE) is not sufficient. You can download Java Development Kit in http://www.oracle.com/technetwork/java/javase/downloads/index.html
+
+    Tester uses one external tool: Modelsim. Tester generates simulation scripts that use Modelsim (http://model.com/). However another simulation tool can be used, but it must be able to simulate SystemC files. Additional information about using another simulation tool can be obtained in https://corfu.pucrs.br/redmine/projects/atlas/wiki
+
+A.I. Environmental variables:
+
+Windows 2000/XP
+1. Add the JAVA_HOME environment variable by opening up the system properties (WinKey + Pause), selecting the "Advanced" tab, and the "Environment Variables" button, then adding the JAVA_HOME in your user variables or in the system variables and it is set to the location of your JDK, e.g. C:\Program Files\Java\jdk1.5.0_02
+2. In the same dialog, add the %JAVA_HOME%\bin in your Path environment variable.
+3. In the same dialog, add the ATLAS_HOME environment variable in your user variables or in the system variables and it is set to the location of your Atlas, e.g. C:\Program Files\Atlas
+4. In the same dialog, add the %ATLAS_HOME% in your Path environment variable.
+5. In the same dialog, add the MODELSIM_HOME environment variable in your user variables or in the system variables and it is set to the location of your Modelsim, e.g. C:\Program Files\Modelsim6.5c
+6. In the same dialog, add the %MODELSIM_HOME%\bin in your Path environment variable.
+7. In the same dialog, add the LM_LICENSE_FILE environment variable in your user variables or in the system variables and it is set to the location of your license, e.g. C:\Program Files\mgls_v8-5_0-5-0.ss5\etc\cust\mgc\license.anacad
+
+Unix-based Operating Systems (Linux, Solaris and Mac OS X)
+
+JAVA_HOME environment variable
+1. In a command terminal, add the JAVA_HOME environment variable, e.g. export JAVA_HOME=/usr/java/jdk1.5.0_02
+2. In a command terminal, add $JAVA_HOME/bin in your Path environment variable, e.g. export PATH=$JAVA_HOME/bin:$PATH
+
+ATLAS_HOME environment variable
+1. In a command terminal, add the ATLAS_HOME environment variable, e.g. export ATLAS_HOME=/soft/gaph/tools/atlas
+2. In a command terminal, add $ATLAS_HOME in your Path environment variable, e.g. export PATH=$ATLAS_HOME:$PATH
+
+MODELSIM_HOME environment variable
+1. In a command terminal, add the MODELSIM_HOME environment variable, e.g. export MODELSIM_HOME=/usr/Modelsim6.5c
+2. In a command terminal, add the $MODELSIM_HOME/bin in your Path environment variable, e.g. export PATH=$MODELSIM_HOME/bin:$PATH
+3. In a command terminal, add the LM_LICENSE_FILE environment variable, e.g. export LM_LICENSE_FILE=/usr/mgls_v8-5_0-5-0.ss5/etc/cust/mgc/license.anacad
+
+
+A.II. Compilation:
+
+Windows 2000/XP
+1. Execute "wincompile.bat" to compile the Tester tool (It will create .class files).
+
+Unix-based Operating Systems (Linux, Solaris and Mac OS X)
+1. Execute "./linux_compile" to compile the Tester tool (It will create .class files).
+
+
+B. Execution:
+
+Windows 2000/XP
+1. Execute "tester.bat" to launch the Tester tool.
+
+Unix-based Operating Systems (Linux, Solaris and Mac OS X)
+2. Execute "./tester" to launch the Tester tool.
+
+
+B.I. Execution parameters:
+
+    The Tester has three "optional" parameters:
+
+1. -pConfig file: The projects configuration file. The path by default is: $ATLAS_HOME/Tester/Data/projects.txt. See more information about projects configuration file in C.I.
+2. -sConfig file: The sceneries configuration file. The path by default is: $ATLAS_HOME/Tester/Data/sceneries.txt. See more information about sceneries configuration file in C.II.
+3. -pDir: The parent directory where the "atlas_projects" directory will be created. Tester creates the "atlas_projects" directory to store all generated projects. This directory is created in $ATLAS_HOME/Tester/Data by default, but the user can modify this path using this execution parameter
+
+    Examples:
+	./tester
+	./tester -pConfigFile=/home/user/atlas_projects.txt -sConfigFile=/home/user/atlas_sceneries.txt
+	./tester -pDir=/home/
+
+
+C. Configuration files:
+
+    Tester uses two configuration files: one for projects and other for sceneries. Tester uses $ATLAS_HOME/Tester/Data/projects.txt and $ATLAS_HOME/Tester/Data/sceneries.txt By default. However another configuration file can be used using the parameters -pConfigFile and -sConfigFile.
+
+
+C.I Projects Configuration File:
+
+    Each line of a projects configuration file corresponds to a project and contains its parameters, except the first line. The first line contains the name and order of the parameters in a line.
+    All projects defined in a projects configuration file are generated by Tester, except those defined in commented lines. A commented line begins by the "#" caracter. Therefore, a projects configuration file can have many projects and the user can choose which will be generated commenting the lines.
+    The parameters in a line are separated by spaces. Attention for individual parameters using intermediary spaces. For instance, the crc type called: Link CRC, Source CRC and Hamming CRC, its are replaced by: Link, Source and Hamming in the project configuration file. 
+    
+An example of a projects configuration file:
+
+line 0: <ProjectName> <NoCType> <NumRotX> <NumRotY> <FlitSize> <BufferDepth> <FlowControl> <VirtualChannel> <Algorithm> <CyclesPerFlit> <CyclesToRoute> <Scheduling> <SCTB> <CRCType> <Saboteur> <DR> <DF> <GN> <GP> <Routing> <CTRLRouting> <GSRouting> <BERouting>
+line 1: HermesHS_2x2 HERMES 2 2 16 16 Handshake 1 AlgorithmXY 2 7 RoundRobin true none false false false false false "0" "0" "0" "0"
+
+
+C.II. Sceneries Configuration File:
+
+    Each line of a sceneries configuration file corresponds to a traffic scenery and contains its parameters, except the first line. The first line contains the name and order of the parameters in a line.
+    All sceneries defined in a sceneries configuration file are generated by Tester, except those defined in commented lines. A commented line begins by the "#" caracter. Therefore, a sceneries configuration file can have many sceneries and the user can choose which will be generated commenting the lines.
+    The parameters in a line are separated by spaces. 
+    
+An example of a sceneries configuration file:
+
+line 0: <Name> <Distribution> <Frequency> <Target> <Priority> <NumberOfPackets> <PacketSize> <UniformRate> <NormalAverageRate> <NormalMinimalRate> <NormalMaximalRate> <NormalStandardDeviation> <NormalIncrement> <ParetoRateOnPeriod> <ParetoBurstSize> <CTRL_NumberOfPackets> <GS_NumberOfPackets> <BE_NumberOfPackets> <CTRL_PacketSize> <GS_PacketSize> <BE_PacketSize> <CTRL_UniformRate> <GS_UniformRate> <BE_UniformRate>
+line 1: Uniform_11 uniform 50 11 0 10 16 100 0 150 250 10 10 0 30 16 30 200 16 16 16 100 100 100
+line 2: Uniform_Random uniform 50 random 0 10 16 100 0 150 250 10 10 0 30 16 30 200 16 16 16 100 100 100
+
+D. Scripts
+
+	Tester generates the simulation and verification scripts. 
+
+D.I. Simulation Script:
+	The (global) simulation script created in the atlas_projects directory allows simulate all generated projects using Modelsim. Tester does not launch the Modelsim simulation. To launch the Modelsim simulation:
+
+Windows 2000/XP
+1. Execute "simulate_all.bat".
+
+Unix-based Operating Systems (Linux, Solaris and Mac OS X)
+2. Execute "./simulate_all".
+
+Obs: Each generated project has its own simulation script that can be launch individually as indicated above.   
+
+
+D.II. Verification Script:
+	The (global) verification script created in the atlas_projects directory allows verify if all generated packets were correctly transmitted. Tester does not launch this script. To launch the verification script:
+
+Windows 2000/XP
+1. Execute "verify_all.bat".
+
+Unix-based Operating Systems (Linux, Solaris and Mac OS X)
+2. Execute "./verify_all".
+
+Obs: Each generated project has its own verification script that can be launch individually as indicated above.   
+
+D.II.I. Verification Script Output
+	The verification script has two possible outputs for each combination between a project and a scenery:
+	
+1. When all generated packets are correctly transmitted:
+<project_name> with <scenery_name> traffic Success: <N> packets generated and <N> packets received
+
+2. When there is a different between the number of generated packets and the number of transmitted packets: 
+<project_name> with <scenery_name> traffic Error: <N> packets generated and <M> packets received
+
+D.II.II. Simulation Time Error
+	If a output indicates a error and <M> is a value smaller than <N> and different to zero, it is possible that the simulation time has not been enough to transmit all packets.To verify this: 
+
+In project directory where has occurred the error:
+1. Duplicate the simulation time
+The simulation time is informed in line 35 of the simulate.do file (run 1 ms).  
+2. Launch the simulation script
+3. Launch the verification script
+4. If the error continues existing and <M> continues with the "same" value then this error is not a simulation time problem. If the error continues existing but the <M> has a greater value, repeat this procedure.
+

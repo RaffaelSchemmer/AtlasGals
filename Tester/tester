@@ -1,0 +1,1 @@
+java -classpath $ATLAS_HOME Tester/Tester $*
