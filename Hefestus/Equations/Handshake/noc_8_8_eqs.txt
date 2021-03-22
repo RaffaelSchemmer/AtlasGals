@@ -1,0 +1,2 @@
+Buffers Rate -> Eq: Power(mW) = ( 0.00829799 * Taxa ) + 2.08417
+Switch Control -> Eq: Power(mW) = ( 0.000817897 * Taxa ) + 1.23937

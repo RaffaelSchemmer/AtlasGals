@@ -1,0 +1,3 @@
+Inport Rate -> Eq: Power(mW) = ( 0.00292561 * Taxa ) + 55.8978
+Switch Control -> Eq: Power(mW) = ( 0.000148313 * Taxa ) + 2.87516
+Outport Rate -> Eq: Power(mW) = ( 0.000463615 * Taxa ) + 0.0592622
