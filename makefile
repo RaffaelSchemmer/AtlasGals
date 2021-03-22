@@ -1,15 +1,15 @@
 #------------------------------------------------------------------------#
-#																		 #
-#  Atlas Makefile														 #
-#  Data de Criação : 08/03/2012											 #
-#  Última revisão  : 08/03/2012	/ 18:30 / R.Schemmer					 #
-#  Codificação     : UTF-8 "Criado pela ferramenta Geany"				 #
+#									 #
+#  Atlas Makefile							 #
+#  Data de Criação : 08/03/2012						 #
+#  Última revisão  : 08/03/2012	/ 18:30 / R.Schemmer			 #
+#  Codificação     : UTF-8 "Criado pela ferramenta Geany"		 #
 #------------------------------------------------------------------------#
 
 #------------------------------------------------------------------------#
-#																		 #
-#  Lista de Diretórios													 #
-#																		 #
+#									 #
+#  Lista de Diretórios							 #
+#									 #
 #------------------------------------------------------------------------#
 
 # Setar o caminho absoluto da Atlas antes de executar o makefile
@@ -18,17 +18,17 @@
 GP= /home/raffael/gals/
 
 #------------------------------------------------------------------------#
-#																		 #
-#  Lista de Flags para o compilador										 #
-#																		 #
+#									 #
+#  Lista de Flags para o compilador					 #
+#									 #
 #------------------------------------------------------------------------#
 
 JF= -classpath . -Xlint:none
 
 #------------------------------------------------------------------------#
-#																		 #
-#  Lista de Comandos de Ferramentas										 #
-#																		 #
+#									 #
+#  Lista de Comandos de Ferramentas					 #
+#									 #
 #------------------------------------------------------------------------#
 
 J= java
@@ -36,9 +36,9 @@ JC= javac
 RM= rm -Rf
 
 #------------------------------------------------------------------------#
-#																		 #
-#  Lista de Subdiretórios												 #
-#																		 #
+#									 #
+#  Lista de Subdiretórios						 #
+#									 #
 #------------------------------------------------------------------------#
 
 APD= AtlasPackage/
@@ -56,32 +56,32 @@ TRMBD= TrafficMbps/
 TRMEAD= TrafficMeasurer/
 
 #------------------------------------------------------------------------#
-#																		 #
-#  atlas : Parametro para compilar todos os subdiretórios da Atlas		 #
-#																		 #
+#									 #
+#  atlas : Parametro para compilar todos os subdiretórios da Atlas	 #
+#									 #
 #------------------------------------------------------------------------#
 
 atlas: atlaspackage hefestus hermescrc hermesg hermessr hermestb hermestu jupiter maia tester trafficmbps trafficmeasurer root
 atlasc: cleanatlas atlaspackage hefestus hermescrc hermesg hermessr hermestb hermestu jupiter maia generator tester trafficmbps trafficmeasurer root
 
 #-------------------------------------------------------------------------------------#
-#  Parametros para compilar subdiretórios								 		      #
-#																		 		      #
-#  atlaspackage    : Compila arquivos do pacote AtlasPackage			  		      #
-#  hefestus		   : Compila arquivos do pacote de avaliação de potência da Hermes    #
-#  hermescrc	   : Compila arquivos do pacote da rede HermesCRC   		 	      #
-#  hermesg		   : Compila arquivos do pacote da rede	HermesG					      #
-#  hermessr		   : Compila arquivos do pacote da rede	HermesSR				      #
-#  hemestb		   : Compila arquivos do pacote da rede	HermesTB				      #
-#  hemestu		   : Compila arquivos do pacote da rede	HermesTU				      #
-#  jupiter		   : Compila arquivos do pacote da rede	Mercury					      #
-#  maia			   : Compila arquivos do pacote da rede	Hermes					      #
+#  Parametros para compilar subdiretórios					      #
+#										      #
+#  atlaspackage    : Compila arquivos do pacote AtlasPackage			      #
+#  hefestus	   : Compila arquivos do pacote de avaliação de potência da Hermes    #
+#  hermescrc	   : Compila arquivos do pacote da rede HermesCRC   		      #
+#  hermesg	   : Compila arquivos do pacote da rede	HermesG			      #
+#  hermessr	   : Compila arquivos do pacote da rede	HermesSR		      #
+#  hemestb	   : Compila arquivos do pacote da rede	HermesTB		      #
+#  hemestu	   : Compila arquivos do pacote da rede	HermesTU		      #
+#  jupiter	   : Compila arquivos do pacote da rede	Mercury			      #
+#  maia		   : Compila arquivos do pacote da rede	Hermes			      #
 #  generator	   : Compila arquivos do pacote da ferramenta de teste S/Interface    #
-#  tester		   : Compila arquivos do pacote da ferramenta de teste C/Interface    #
+#  tester	   : Compila arquivos do pacote da ferramenta de teste C/Interface    #
 #  trafficmbps     : Compila arquivos do pacote da ferramenta de Geração de tráfego   #
 #  trafficmeasurer : Compila arquivos do pacote da ferramenta de Avaliação de tráfego #	
-#  generator	   : Compila arquivos do gerador de redes e tráfego broadcast  	 	  #												 		 
-#  root			   : Compila arquivos da interface grafica principal da Atlas  	 	  #
+#  generator	   : Compila arquivos do gerador de redes e tráfego broadcast  	      #												 		 
+#  root		   : Compila arquivos da interface grafica principal da Atlas  	      #
 #-------------------------------------------------------------------------------------#
 
 atlaspackage: $(APD)AvailableClock.java $(APD)Clock.java $(APD)Convert.java $(APD)Default.java $(APD)ExampleFileFilter.java $(APD)ExponentialTraffic.java $(APD)FileChooserDemo.java $(APD)Help.java $(APD)JPanelImage.java $(APD)JPanel_Noc.java $(APD)ManipulateFile.java $(APD)NoC.java $(APD)NoCGeneration.java $(APD)NoCGenerationCB.java $(APD)NoCGenerationGUI.java $(APD)NoCGenerationHS.java $(APD)NoCGenerationVC.java $(APD)NormalTraffic.java $(APD)ParetoTraffic.java $(APD)ProgressBarFrame.java $(APD)Project.java $(APD)Router.java $(APD)RouterTraffic.java $(APD)Scenery.java $(APD)SCInputModule.java $(APD)SCOutputModule.java $(APD)SCOutputModuleRouter.java $(APD)SR4Traffic.java $(APD)Traffic.java $(APD)UniformTraffic.java
@@ -127,18 +127,18 @@ root: $(GP)Atlas.java $(GP)InterfacePrincipal.java $(GP)ModelsimThread.java $(GP
 	$(JC) $(JF) $(GP)Atlas.java $(GP)InterfacePrincipal.java $(GP)ModelsimThread.java $(GP)ProjectWindow.java $(GP)SimulationWindow.java
 
 #--------------------------------------------------------------------------------------------#
-#  Parametros para deletar arquivos de compilação de sub diretórios		 		    	  	 #
-#																		 		    	  	 #
-#  cleanatlas    	    : Deleta os arquivos binários de todos os arquivos da Atlas 	  	 #
-#  cleanatlaspackage    : Deleta os arquivos binários do pacote AtlasPackage 			  	 #
-#  cleanhefestus   	    : Deleta os arquivos binários da ferramenta de avaliação de potência #
-#  cleanhermescrc	    : Deleta os arquivos binários da rede HermesCRC 					 #
-#  cleanhermesg	        : Deleta os arquivos binários da rede HermesG 						 #
-#  cleanhermessr	    : Deleta os arquivos binários da rede HermesSR 						 #
-#  cleanhermestb	    : Deleta os arquivos binários da rede HermesTB 					 	 #
-#  cleanhermestu	    : Deleta os arquivos binários da rede HermesTU 					 	 #
-#  cleanjupiter		    : Deleta os arquivos binários da rede Mercury 					 	 #
-#  cleanmaia	        : Deleta os arquivos binários da rede Hermes 						 #
+#  Parametros para deletar arquivos de compilação de sub diretórios		 	     #
+#											     #
+#  cleanatlas    	    : Deleta os arquivos binários de todos os arquivos da Atlas      #
+#  cleanatlaspackage        : Deleta os arquivos binários do pacote AtlasPackage             #
+#  cleanhefestus   	: Deleta os arquivos binários da ferramenta de avaliação de potência #
+#  cleanhermescrc	    : Deleta os arquivos binários da rede HermesCRC 		     #
+#  cleanhermesg	            : Deleta os arquivos binários da rede HermesG 		     #
+#  cleanhermessr	    : Deleta os arquivos binários da rede HermesSR 		     #
+#  cleanhermestb	    : Deleta os arquivos binários da rede HermesTB 		     #
+#  cleanhermestu	    : Deleta os arquivos binários da rede HermesTU 		     #
+#  cleanjupiter		    : Deleta os arquivos binários da rede Mercury 		     #
+#  cleanmaia	        : Deleta os arquivos binários da rede Hermes 	 		     #
 #  cleangenerator       : Deleta os arquivos binários da ferramenta de testes S/Interface    #
 #  cleantester          : Deleta os arquivos binários da ferramenta de testes C/Interface    #
 #  cleantrafficmbps     : Deleta os arquivos binários da ferramenta de Geração de tráfego    #
