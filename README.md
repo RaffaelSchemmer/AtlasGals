@@ -1,3 +1,5 @@
+![image](https://user-images.githubusercontent.com/5760466/111929099-2f66ef00-8a94-11eb-9871-e82298eaf1c2.png)
+
 ### Instalação do ambiente Atlas e das ferramentas relacionadas:
 
 - Ubuntu 10.04 LTS x64-64.
