@@ -1,0 +1,15 @@
+#-------------------------------------------------------------------------------
+# Script to plot the NoC Average Power Consumption
+#-------------------------------------------------------------------------------
+unset title
+unset label
+set autoscale
+set title "NoC Average Power consumption vs Total Simulation Time"
+set xlabel "Time (us)"
+set ylabel "Average Power Consumption (mW)"
+#-------------------------------------------------------------------------------
+# Ploting the NoC power consumption graphic
+#-------------------------------------------------------------------------------
+set autoscale
+plot "Evaluation/noc.dat" using 1:2 title 'Power Consumption' with lines
+pause -1 "Press ENTER to continue"

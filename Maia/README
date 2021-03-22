@@ -1,0 +1,40 @@
+ENGLISH
+To execute the MAIA tool by command line, it is necessary to inform 14 parameters in the following order:
+1) java parameter which precedes the classpath: -cp (fixed)
+2) directory where the ATLAS environment was installed. For example, ".\;C:\AtlasV1.2"
+3) class name which contains the main function: Maia (fixed)
+4) path where the NoC must be generated. For example, c:\NoCs
+5) directory name where the NoC files must be generated. For example, Hermes3x3
+6) X dimension (number of routers in the horizontal line). For example, 3
+7) Y dimension (number of routers in the vertical line). For example, 3
+8) Flit size (in bits). For example, 16
+9) buffer depth (in positions). For example, 16
+10) flow control: handshake or creditBased
+11) routing algorithm: XY (fixed)
+12) number of virtual channels. For example, 2 
+13) scheduling algorithm: roundRobin or fixedPriority
+14) to generate or not the SystemC testbench files: TRUE or FALSE
+
+Example of command line:
+java -cp ".\;C:\AtlasV1.2" Maia "C:\NoCs" "hermes3x3" 3 3 16 16 creditBased XY 1 roundRobin True
+
+
+PORTUGUÊS
+Para executar a ferramenta MAIA por linha de comando, é necessário informar 14 parâmetros na seguinte ordem:
+1) parâmetro java que antecede o classpath: -cp (fixo)
+2) diretório onde foi instalado o ambiente Atlas. Por exemplo: ".\;C:\AtlasV1.2"
+3) nome da classe que contem a função main: Maia (fixo)
+4) caminho onde a NoC deve ser gerada. Por exemplo, c:\NoCs
+5) nome do diretório onde os arquivos da NoC deve ser gerados. Por exemplo, Hermes3x3
+6) dimensão X (número de roteadores na horizontal). Por exemplo, 3
+7) dimensão Y da NoC (número de roteadores na vertical). Por exemplo, 3
+8) tamanho do flit (em bits). Por exemplo, 16
+9) profundidade dos buffers (em posições). Por exemplo, 16
+10) controle de fluxo: handshake ou creditBased
+11) algoritmo de roteamento: XY (fixo)
+12) número de canais virtuais. Por exemplo, 2 
+13) algoritmo de escalonamento: roundRobin ou fixedPriority
+14) gerar ou não arquivos testbench em SystemC: TRUE ou FALSE
+
+Exemplo de linha de Comando:
+java -cp ".\;C:\AtlasV1.2" Maia "C:\NoCs" "hermes3x3" 3 3 16 16 creditBased XY 1 roundRobin True
