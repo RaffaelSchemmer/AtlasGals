@@ -1,0 +1,32 @@
+unset title
+unset label
+set autoscale
+set title "Potência média nos roteadores de uma NoC com 16 bits e buffer depth=16"
+set xlabel "% Taxa Total"
+set ylabel "Potência Média (mW)"
+#-------------------------------------------------------------------------------
+# Buffer Equations
+#-------------------------------------------------------------------------------
+a_buffer=0.00454419
+b_buffer=7.07608
+buffer(x)=(a_buffer*x)+b_buffer
+#-------------------------------------------------------------------------------
+# Swicth Control Equations
+#-------------------------------------------------------------------------------
+a_swctrl=0.000622297
+b_swctrl=1.24392
+swctrl(x)=(a_swctrl*x)+b_swctrl
+#-------------------------------------------------------------------------------
+# Crossbar Equations
+#-------------------------------------------------------------------------------
+a_xbar=0.000142142
+b_xbar=0.000308509
+xbar(x)=(a_xbar*x)+b_xbar
+routerBL(x)=3*buffer(x)+ swctrl(x) + xbar(x)
+routerBC(x)=4*buffer(x)+ swctrl(x) + xbar(x)
+routerCC(x)=5*buffer(x)+ swctrl(x) + xbar(x)
+set xrange [0:50]
+plot routerBL(x) title 'RouterBL, RouterBR, RouterTL, RouterTR', \
+     routerBC(x) title 'RouterBC, RouterCL, RouterCR, RouterTC', \
+     routerCC(x) title 'RouterCC'
+pause -1 "Press ENTER to continue"
